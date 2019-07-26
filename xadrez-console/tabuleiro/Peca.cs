@@ -6,8 +6,8 @@
 
         public Tabuleiro Tab { get; protected set; }
 
-        public Peca(Posicao posicao, Tabuleiro tab, Cor cor) {
-            this.Posicao = posicao;
+        public Peca(Tabuleiro tab, Cor cor) {
+            this.Posicao = null;
             this.Tab = tab;
             this.Cor = cor;
             this.QteMovimentos = 0;

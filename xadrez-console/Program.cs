@@ -1,6 +1,7 @@
 ﻿using System;
 using tabuleiro;
 using xadrez;
+
 namespace xadrez_console {
     class Program {
         static void Main(string[] args) {
@@ -14,12 +15,17 @@ namespace xadrez_console {
 
                 Tela.imprimirTabuleiro(tab);
             } catch (TabuleiroException e) {
-                Console.WriteLine("Exeção de Tabuleiro: "+e.Message);
+                Console.WriteLine("Exeção de Tabuleiro: " + e.Message);
             } catch (Exception e) {
-                Console.WriteLine("Exceção não identificada: "+e.Message);
+                Console.WriteLine("Exceção não identificada: " + e.Message);
             }
 
             Console.ReadLine();
+
+            PosicaoXadrez pos1 = new PosicaoXadrez('a',1);
+            PosicaoXadrez pos2 = new PosicaoXadrez('c', 7);
+            Console.WriteLine(pos1.toPosicao());
+            Console.WriteLine(pos2.toPosicao());
         }
     }
 }

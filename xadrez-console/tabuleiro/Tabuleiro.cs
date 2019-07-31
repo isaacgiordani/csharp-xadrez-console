@@ -42,7 +42,7 @@
         }
 
         public bool posicaoValida(Posicao pos) {
-            if (pos.Linha < 0 || pos.Linha >= Linhas || pos.Coluna >= Colunas)
+            if (pos.Linha < 0 || pos.Linha >= Linhas || pos.Coluna >= Colunas || pos.Coluna < 0)
                 return false;
             return true;
         }

@@ -1,22 +1,21 @@
 ﻿namespace tabuleiro {
     abstract class Peca {
-        public Posicao Posicao { get; set; }
-        public Cor Cor { get; protected set; }
-        public int QteMovimentos { get; protected set; }
-
-        public Tabuleiro Tab { get; protected set; }
+        public Posicao posicao { get; set; }
+        public Cor cor { get; protected set; }
+        public int qteMovimentos { get; protected set; }
+        public Tabuleiro tab { get; protected set; }
 
         public Peca(Tabuleiro tab, Cor cor) {
-            this.Posicao = null;
-            this.Tab = tab;
-            this.Cor = cor;
-            this.QteMovimentos = 0;
+            this.posicao = null;
+            this.tab = tab;
+            this.cor = cor;
+            this.qteMovimentos = 0;
         }
 
-        public bool existeMovimentosPossiveis() {
+        public bool existemMovimentosPossiveis() {
             bool[,] mat = movimentosPossiveis();
-            for (int i = 0; i < Tab.Linhas; i++) {
-                for (int j = 0; j < Tab.Colunas; j++) {
+            for (int i = 0; i < tab.linhas; i++) {
+                for (int j = 0; j < tab.colunas; j++) {
                     if (mat[i, j]) {
                         return true;
                     }
@@ -26,17 +25,17 @@
         }
 
         public bool movimentoPossivel(Posicao pos) {
-            return movimentosPossiveis()[pos.Linha, pos.Coluna];
+            return movimentosPossiveis()[pos.linha, pos.coluna];
         }
 
         public abstract bool[,] movimentosPossiveis();
 
         public void incrementarQteMovimentos() {
-            QteMovimentos++;
+            qteMovimentos++;
         }
 
         public void decrementarQteMovimentos() {
-            QteMovimentos--;
+            qteMovimentos--;
         }
     }
 }
